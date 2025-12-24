@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Ateliê - Joias Exclusivas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav>
+            <div class="logo">Aurora Ateliê</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#shop">Coleção</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Aurora Ateliê</h1>
+                <p>Elegância atemporal em cada detalhe</p>
+                <a href="#shop" class="cta-button">Ver Coleção</a>
+            </div>
+        </section>
+
+        <!-- Destaques de Categorias -->
+        <section class="categories">
+            <div class="category-item">
+                <div class="circle-frame">
+                    <img src="img/cat-dark.jpg" alt="Joias Escuras" onerror="this.src='https://placehold.co/300x300/1a1a1a/d4af37?text=Escuras'">
+                </div>
+                <h3>Joias Escuras</h3>
+            </div>
+            <div class="category-item">
+                <div class="circle-frame">
+                    <img src="img/claras.jpeg" alt="Joias Claras" onerror="this.src='https://placehold.co/300x300/f9f7f2/d4af37?text=Claras'">
+                </div>
+                <h3>Joias Claras</h3>
+            </div>
+            <div class="category-item">
+                <div class="circle-frame">
+                    <img src="img/coloridas.jpeg" alt="Variadas" onerror="this.src='https://placehold.co/300x300/e0e0e0/d4af37?text=Variadas'">
+                </div>
+                <h3>Variadas</h3>
+            </div>
+        </section>
+
+        <!-- Shop the Look -->
+        <section id="shop" class="shop-section">
+            <h2>Nossa Coleção</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="brincos">Brincos</button>
+                <button class="filter-btn" data-filter="colares">Colares</button>
+                <button class="filter-btn" data-filter="conjuntos">Conjuntos</button>
+            </div>
+            <div class="products-grid" id="products-container">
+                <!-- Produtos serão carregados via JS -->
+                <div class="loading">Carregando joias exclusivas...</div>
+            </div>
+        </section>
+
+        <!-- Sobre / Newsletter -->
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h2>Sobre a Aurora</h2>
+                <p>Cada peça conta uma história de sofisticação e beleza.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/aurora.atelie7/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5524992702680" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="newsletter">
+                <h3>Seja a primeira a saber</h3>
+                <p>Receba novidades sobre lançamentos exclusivos.</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Seu melhor e-mail" required>
+                    <button type="submit">Notify Me</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Aurora Ateliê. Todos os direitos reservados.</p>
+    </footer>
+
+    <a href="admin.html" class="admin-gear" title="Área Administrativa">
+        <i class="fas fa-cog"></i>
+    </a>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

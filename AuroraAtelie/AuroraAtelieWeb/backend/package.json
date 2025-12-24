@@ -1,0 +1,13 @@
+{
+  "name": "aurora-atelie-backend",
+  "version": "1.0.0",
+  "description": "Backend for Aurora Atelie",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

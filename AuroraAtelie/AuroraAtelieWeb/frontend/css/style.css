@@ -1,0 +1,418 @@
+:root {
+    --color-champagne: #F3E5AB;
+    --color-off-white: #f9f7f2;
+    --color-gold: #d4af37;
+    --color-sand: #e6dccf;
+    --color-text: #4a4a4a;
+    --color-dark: #2c2c2c;
+    
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-off-white);
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+}
+
+/* Header */
+.main-header {
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: rgba(249, 247, 242, 0.95);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--color-gold);
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--color-gold);
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--color-gold);
+    color: white;
+    font-size: 0.7rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+    /* Gold Gradient Background inspirado na imagem */
+    background: linear-gradient(135deg, #8a6e2f 0%, #d4af37 25%, #fcf6ba 50%, #b89f5e 75%, #755c26 100%);
+    background-size: 200% 200%;
+    animation: goldShimmer 15s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* Textura Granulada (Noise) para imitar o metal */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* SVG Noise Pattern inline */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.3;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Remove efeitos anteriores */
+.hero::after {
+    display: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes goldShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: #ffffff; /* Texto Branco para contraste com o Ouro */
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hero-content p {
+    color: #f9f7f2;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: white;
+    border: 2px solid white;
+    color: #8a6e2f; /* Texto Dourado Escuro */
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    font-weight: 600;
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+}
+
+/* Categories */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    padding: 5rem 5%;
+    background-color: white;
+}
+
+.category-item {
+    text-align: center;
+    cursor: pointer;
+}
+
+.circle-frame {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--color-gold);
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s ease;
+}
+
+.circle-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-item:hover .circle-frame {
+    transform: scale(1.05);
+}
+
+.category-item h3 {
+    font-size: 1.2rem;
+    color: var(--color-text);
+}
+
+/* Shop Section */
+.shop-section {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.shop-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-gold);
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.product-card {
+    background: white;
+    padding: 1rem;
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.product-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    background-color: #f5f5f5;
+}
+
+.product-name {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    color: var(--color-gold);
+    font-weight: 500;
+}
+
+/* About & Newsletter */
+.about-section {
+    background-color: var(--color-sand);
+    padding: 5rem 5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.social-links a {
+    color: var(--color-text);
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--color-gold);
+}
+
+.newsletter form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.newsletter input {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    width: 300px;
+    font-family: var(--font-sans);
+}
+
+.newsletter button {
+    padding: 0.8rem 2rem;
+    background-color: var(--color-gold);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.newsletter button:hover {
+    background-color: #bfa030;
+}
+
+footer {
+    background-color: var(--color-dark);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .categories {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .newsletter form {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .newsletter input {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Admin Button */
+.admin-gear {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-sand); /* Bege */
+    color: var(--color-dark);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s, background 0.3s;
+    z-index: 2000;
+    text-decoration: none;
+}
+
+.admin-gear:hover {
+    transform: rotate(90deg);
+    background-color: var(--color-gold);
+    color: white;
+}

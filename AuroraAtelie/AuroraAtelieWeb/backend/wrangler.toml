@@ -1,0 +1,17 @@
+name = "aurora-atelie-backend"
+main = "src/index.js"
+compatibility_date = "2024-12-22"
+compatibility_flags = [ "nodejs_compat" ]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "aurora-db"
+database_id = "bcabefb2-d51c-46aa-991e-cef48b6d6ab8"
+
+[[r2_buckets]]
+binding = "IMAGE_BUCKET"
+bucket_name = "aurora-images"
+
+[env.production]
+name = "aurora-atelie-backend-prod"
+# route = "https://api.auroraatelie.com/*"
